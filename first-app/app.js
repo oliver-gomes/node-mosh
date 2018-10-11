@@ -5,8 +5,7 @@
 // setInterval();
 // clearInterval();
 
-// Our create module
-
+// Module: Logger (manually made)
 // const log = require("./logger.js");
 // log("message");
 
@@ -16,6 +15,16 @@
 // console.log(pathObj);
 
 // Module: OS
-const os = require("os");
-var osPlat = os.release();
-console.log(osPlat);
+// const os = require("os");
+// var osMethod = os.freemem();
+// console.log(osMethod);
+
+// Module: File System
+const fs = require("fs");
+const files = fs.readdirSync("./");
+console.log(`Result Sync: ${files}`);
+
+const filesAsyn = fs.readdir("./", function(err, files) {
+  if (err) console.log("Error", err);
+  else console.log("Result Async", files);
+});
